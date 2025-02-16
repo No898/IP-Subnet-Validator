@@ -10,8 +10,9 @@ namespace IP_Masking_app
     internal class Program
     {
         // Regex validace formátů
-        private const string IP_REGEX_PATTERN = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
-        private const string CIDR_REGEX_PATTERN = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(\d|[1-2][0-9]|3[0-2])$";
+        private const string IP_PART = @"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)";
+        private const string IP_REGEX_PATTERN = $"^({IP_PART}\\.){{3}}{IP_PART}$";
+        private const string CIDR_REGEX_PATTERN = $"^({IP_PART}\\.){{3}}{IP_PART}/(\\d|[1-2][0-9]|3[0-2])$";
 
         static void Main(string[] args)
         {
